@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,m,k,vis[1005][1005];
+char g[1005][1005];
+bool vaid(int x,int y)
+{
+    if(g[x][y]!='.'||x<0||y<0||x>=n||y>=m||vis[x][y]!=0)
+        return false;
+    return true;
+}
+void solve(int x,int y)
+{
+    if(!vaid(x,y))
+        return;
+    vis[x][y]=1;
+    solve(x+1,y);
+    solve(x-1,y);
+    solve(x,y+1);
+    solve(x,y-1);
+    if(k)
+    {
+        g[x][y]='X';
+        k--;
+    }
+}
+int main()
+{
+    cin>>n>>m>>k;
+    for(int i=0; i<n; i++)
+        for(int j=0; j<m; j++)
+            cin>>g[i][j];
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            if (k!=0)
+                solve(i,j);
+        }
+    }
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            cout<<g[i][j];
+        }
+        cout<<"\n";
+    }
+    return 0;
+}
+ 
