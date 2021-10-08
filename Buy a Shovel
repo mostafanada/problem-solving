@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main()
+{
+    ll a,b,mu=1,re;cin>>a>>b;
+    for (int i=1;i<=9;i++)
+    {
+        mu=a*i;
+        if(mu%10==0||mu%10==b){re=i;break;}
+    }
+    cout<<re;
+}
