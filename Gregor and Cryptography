@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+vector<bool>v(1e9,false);
+int main()
+{
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+        ll n,c=0,d=0;
+        cin>>n;
+        bool flag=false;
+        for(int i=2;i<n;i++)
+        {
+            for(int j=n/2;j<n;j++)
+                if(n%i==n%j&&i!=j)
+            {
+                flag=true;
+                c=i,d=j;
+                break;
+            }
+            if(flag)
+                break;
+        }
+        cout<<c<<" "<<d<<"\n";
+    }
+    return 0;
+}
